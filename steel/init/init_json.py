@@ -27,7 +27,6 @@ def read_student(filename):
          student_list = []
          for record in lines:
 		record1 = record.rstrip().split('\t')
-		print record1, record1[1], time.strptime(record1[1], "%m/%d/%Y")
 		record1[1] = time.strftime("%Y-%m-%d", time.strptime(record1[1], "%m/%d/%Y"))
                 student_list += [record1]
          return student_list
