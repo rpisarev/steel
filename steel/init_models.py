@@ -52,10 +52,8 @@ def create_group_and_student(data):
 def init_models(models_dict):
 	if models_dict != -1:
 		for obj in models_dict['groups']:
-			print obj
 			obj.save()
 		for obj in models_dict['students']:
-		        print obj
 		        obj.save()
 		return "Ok!"
 	else:
