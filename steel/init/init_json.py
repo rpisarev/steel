@@ -53,9 +53,9 @@ def gen_json(file_group, file_student):
 		return -1
 
 def save_json(file_json):
-	jsonfile = open(os.path.join(os.path.dirname(__file__), file_json), 'w')
 	data = gen_json('init_group.txt', 'init_student.txt')
 	if data != -1:
+		jsonfile = open(os.path.join(os.path.dirname(__file__), file_json), 'w')
 		jsonfile.write(data)
 		return "Create JSON"
 	else:
