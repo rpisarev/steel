@@ -55,10 +55,9 @@ def init_models(models_dict):
 			obj.save()
 		for obj in models_dict['students']:
 		        obj.save()
-		return "Ok!"
+		return "Init DB completed"
 	else:
-		print("Sorry, can't create models elemetnts")
-		return -1
+		return "Sorry, can't create models elements"
 
 
 print init_models(create_group_and_student(load_json('initial_data.json')))

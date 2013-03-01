@@ -42,7 +42,11 @@ def gen_data(groups, students):
 		return -1
 
 def gen_json(file_group, file_student):
-	data = gen_data(read_group(os.path.join(os.path.dirname(__file__), file_group)), read_student(os.path.join(os.path.dirname(__file__), file_student)))
+	try:
+		data = gen_data(read_group(os.path.join(os.path.dirname(__file__), file_group)), read_student(os.path.join(os.path.dirname(__file__), file_student)))
+	except:
+		print("Error read files")
+		return -1
 	if data != -1:
 		return json.dumps(data)
 	else:
@@ -53,10 +57,10 @@ def save_json(file_json):
 	data = gen_json('init_group.txt', 'init_student.txt')
 	if data != -1:
 		jsonfile.write(data)
-		return 0
+		return "Create JSON"
 	else:
-		print("Can't create JSON")
-		return -1
+		return "Can't create JSON"
+
 print save_json('initial_data.json')
 
 
